@@ -5,8 +5,10 @@ metadata:
 spec:
   selector:
     app: my-node-app
-  type: LoadBalancer
+  type: NodePort  # Change from LoadBalancer to NodePort
   ports:
     - protocol: TCP
-      port: 5173
-      targetPort: 5173
+      port: 5173        # Port exposed by the service
+      targetPort: 5173  # Port on the pod/container
+      nodePort: 30001   # Optional: specify a port for NodePort service
+
